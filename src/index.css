@@ -1,13 +1,124 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #80808024;
+  padding-top: 1px;
+  padding-bottom: 20px;
+}
+
+button {
+  background-color: #006eff21;
+  border: 1px solid grey;
+  border-radius: 5px;
+  width: 180px;
+  height: 35px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.list-news {
+  list-style: none;
+}
+
+.item-news {
+  width: 90%;
+  background-color: white;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+
+.news {
+
+}
+
+.news-header {
+  display: flex;
+  margin: 10px 0;
+}
+
+.news-header > img {
+  width: 64px;
+  height: 64px;
+  margin-right: 10px;
+}
+
+.news-header-title {
+  align-self: center;
+}
+.header-title {
+
+}
+.header-time {
+  color: #808080a3;
+}
+.news-main {
+
+}
+.main-text {
+  margin-bottom: 10px;
+}
+
+.main-text > a {
+text-decoration: none;
+}
+
+.main-content {
+
+}
+.news-footer {
+  display: flex;
+  border-top: 1px solid #80808066;
+  margin-top: 20px;
+}
+.footer-likes, .footer-comments, .footer-reposts, .footer-views {
+  display: flex;
+  margin: 10px 0;
+}
+
+span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 0 10px;
+}
+
+.footer-likes > span {
+ background-image: url(../images/like.png);
+}
+.footer-likes > p {
+
+}
+.footer-comments {
+
+}
+.footer-comments > span {
+ background-image: url(../images/comment.png);
+}
+.footer-comments > p {
+
+}
+.footer-reposts {
+
+}
+.footer-reposts > span {
+ background-image: url(../images/repost.png);
+}
+.footer-reposts > p {
+
+}
+.footer-views {
+  margin-left: auto;
+}
+.footer-views > span {
+ background-image: url(../images/view.png);
 }

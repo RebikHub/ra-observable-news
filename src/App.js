@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import ListNews from './components/ListNews';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchGetRequest } from './store/actions';
 
 function App() {
+  const state = useSelector((state) => state.newsList);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchGetRequest());
+  }, [dispatch])
+
+  console.log(state);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ListNews news={state.news}/>
   );
 }
 
