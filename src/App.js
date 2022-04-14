@@ -1,20 +1,19 @@
 import ListNews from './components/ListNews';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchGetRequest } from './store/actions';
+import { fetchGetRequest } from './store/slicesList';
+
 
 function App() {
-  const state = useSelector((state) => state.newsList);
+  const state = useSelector((state) => state.reducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchGetRequest());
   }, [dispatch])
 
-  console.log(state);
-
   return (
-    <ListNews news={state.news}/>
+    <ListNews news={state.news} newsGet={state.newsGet} loading={state.loading}/>
   );
 }
 

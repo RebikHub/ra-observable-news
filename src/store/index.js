@@ -1,25 +1,20 @@
-import { applyMiddleware, combineReducers, createStore } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
 import { combineEpics, createEpicMiddleware } from "redux-observable";
-import { getNewsEpic } from "../epic/index";
-import reducerGet from "./reducerGet";
-import reducerGetMore from "./reducerGetMore";
+import { getNewsEpic, getNewsMoreEpic } from "../epic/index";
+import { newsReducer } from "./slicesList";
 
-
-const reducer = combineReducers({
-  newsList: reducerGet,
-  newsMore: reducerGetMore,
-});
 
 const epic = combineEpics(
-  getNewsEpic
+  getNewsEpic,
+  getNewsMoreEpic
 );
 
 const epicMiddleware = createEpicMiddleware();
 
-const store = createStore(
-  reducer,
-  applyMiddleware(epicMiddleware)
-);
+const store = configureStore({
+  reducer: newsReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(epicMiddleware)
+});
 
 epicMiddleware.run(epic);
 
